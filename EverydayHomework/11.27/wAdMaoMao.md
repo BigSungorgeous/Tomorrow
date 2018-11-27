@@ -4,7 +4,7 @@
 >答：(1)sql注入；
 >   (2)XSS跨站脚本攻击；
 >   (3)CSRF：跨站请求伪造。
-## 2. 
+## 2. 关于this的问题
 ```javascript
 let fun=()=>{ console.log(this.foo); } 
 let c={ 
