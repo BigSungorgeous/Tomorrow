@@ -1,0 +1,154 @@
+1.说出3种web安全问题？
+   1》跨站脚本攻击
+   2》Cookie篡改
+   3》URL重定向
+   5》远程命令执行
+   6》SQL注入
+   7》XSS攻击
+   8》CSRF攻击（跨站点请求伪造）
+
+ 2.baz undefined(注意this指向问题)
+ 
+3.数组移除第一个元素的方式？
+  var arr=[1,2,3];
+ 1》arr.shift();
+ 2》arr.slice(1);
+ 3》arr.splice(0,1);
+ 4》arr.filter((val,index)=>index>0)
+
+ 4.元素消失
+  1》display:none;
+  2》visibility:hidden;
+  3》opacity:0;
+  4》background：transparent;
+  5》transform:scale(0);
+  6》transform:rotateY(-90deg);
+  7》设置position：absolute,并且利用left,top,right,bottom超出视野范围；
+  8》宽高为零，超出隐藏
+  9》标签的hidden属性
+  10》隐藏域
+  
+5.typeof 返回值
+  1》number
+  2》string
+  3》Boolean
+  4》function
+  5》object
+  6》undefined
+  7》symbol
+  8》Implementation-dependent：宿主对象
+
+6.1-400的1的个数
+      var num=0
+   for(var i=1;i<=400;i++){
+      (function(){
+          var y=[...i.toString()];
+          for(var j=0;j<y.length;j++){
+             if(y[j]==1){
+             	num++;
+             }
+          }
+        
+      })()
+   }
+  console.log(num);//180
+
+7.ajax的get请求和post请求的区别？
+   1》使用Get请求时,参数在URL中显示,而使用Post方式,则不会显示出来
+   2》使用Get请求发送数据量小,Post请求发送数据量大
+   3》get请求需注意缓存问题,post请求不需担心这个问题
+   4》post请求必须设置Content-Type值为application/x-form-www-urlencoded，get可有可无。
+   5》在客户端使用get请求时,服务器端使用Request.QueryString来获取参数,而客户端使用post请求时,服务器端使用Request.Form来获取参数.
+
+8.==，===，Object.is()的区别？
+  1》==：等于运算符，由于存在隐式转换功能，只比较值不比较类型；
+  2》===：严格等于运算符，不存在隐式转换功能，值和类型都比较，常见实例：+0==-0；NaN!=NaN
+  3》 ES6 提出“Same-value equality”（同值相等）算法，用来解决这个问题。Object.is就是部署这个算法的新方法。它用来比较两个值是否严格相等，与严格比较运算符（===）的行为基本一致。
+与严格相等运算符相比存在以下实例：
+  Object.is(+0, -0) // false
+  Object.is(NaN, NaN) // true
+
+9.js函数调用的方法？
+   1》正常的函数声明+函数调用模式-----函数名（）；
+   2》对象名.方法名();
+   3》call(),apply();
+   4》利用new操作符实例化对象
+
+10.js的深浅拷贝？
+    浅拷贝：
+        let arr1={name:"lily"};
+        let arr2=Object.assign({},arr1);
+浅拷贝：仅仅拷贝对象的属性引用，不能拷贝对象方法；  
+通过for…in来实现
+   var arr=["a","你好",10];
+   function simpleClone(initalObj){
+       var obj={};
+       for(var i in initalObj){
+           obj[i]=initalObj[i];
+
+     }
+      return obj;
+  }
+var newarr=simpleClone(arr);
+console.dir(arr);
+console.dir(newarr);
+
+
+
+深拷贝：采用递归的方式把复制的对象所引用的全部对象都复制一遍（包括子对象）。
+Var obj=JSON.parse(JSON.stringify(initalObj));
+Return obj；
+
+var arr=["a","你好",10];
+function deepClone(initalObj){
+   var obj=JSON.parse(JSON.stringify(initalObj));
+   return obj;
+}
+var newarr=deepClone(arr);
+console.dir(arr);
+console.dir(newarr);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
