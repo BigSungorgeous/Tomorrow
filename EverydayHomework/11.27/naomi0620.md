@@ -57,4 +57,4 @@
 
 ## 10.js实现对象的深拷贝浅拷贝##
  *  浅拷贝 将一个数组对象内容 通过[...arr] 或 object.assign()复制对象 复制另一个数组内容
-   深拷贝 通过JSON.stringify () JSON.parse() 用for in遍历循环 用arr.forEach()方法遍历复制
+ *  深拷贝 通过JSON.stringify () JSON.parse() 用for in遍历循环 用arr.forEach()方法遍历复制
