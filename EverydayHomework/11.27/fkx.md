@@ -24,17 +24,16 @@
 
 5.object
 
-6.   let num=1;
+6.  
       let a=0;
       for( let i = 0 ; i < 400 ; i++){
 	let str="";
-	str+=num;
+	str+=i;
 	for( let j = 0 ; j < str.length ;j++){
 		if(Object.is(str[j],"1")){
 			a++;
 		};
 	};
-	num++;
        };
        console.log(a);
 
