@@ -1,0 +1,94 @@
+1.web安全问题
+跨站脚本攻击(CSS or XSS, Cross Site Scripting)、SQL注入攻击(SQL injection)、脚本代码暴露、PHP代码注入、CSRF、URL重定向
+
+2.let c={ this.foo='foo'; this.baz='bar'; var self=this; this.say(){ fun(); } } let fun=()=>{ console.log(this.foo); }
+
+3.数组移除第一个元素的方法有哪些？
+shift() splice() delete()
+
+4.使元素消失的方法有哪些？
+display:none
+opacity
+visibility
+text-intent:-10000em;
+overflow:hidden
+
+5.var arr=[]; console.log(typeof arr) ??? typeof 会返回几种数据类型
+
+返回一种：object
+原因:数组也属于对象，但为什么不返回一个数组？
+
+6.使用js，返回1到400所有自然数中一共出现过多少次“1”，并返回出现次数
+
+返回180次
+var count = 0; //定义初始个数
+for(var i = 1; i <= 400; i++) { //从1到400
+	for(var j = 0; j < i.toString().length; j++) { //把每个数拆分成单个数字，如123拆分成"1","2","3"
+		if(i.toString()[j] == "1") //如果包含1
+			count++; //统计1的个数
+	}
+}
+alert(count); //弹出结果
+
+7.ajax请求的时候get 和post方式的区别
+
+GET请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给WEB服务器。
+GET请求有数据长度限制(大约是2KB)，而POST理论上没有。
+GET方式请求的数据会被浏览器缓存起来，POST不会。
+GET在某些情况下会有安全问题，POST相对于较好一点(其实也不安全还要做加密处理)。
+在客户端使用get请求时,服务器端使用Request.QueryString来获取参数,而客户端使用post请求时,服务器端使用Request.Form来获取参数。
+
+8.'=='和'==='和Object.is()的不同
+
+两个等号是等于，存在隐式转换，即之比较值不比较类型
+三个等号严格等于，不存在隐式转换，即比较的是值和类型
+object.is() 他主要用来比较两个值是否严格相等，与严格运算符的行为基本一致，但是存在同值相等算法
+举例object.is(NaN,NaN）结果只为true
+object.is(+0,-0)结果为false 
+NaN===NaN 结果为false
++0==-0 结果为true
+
+9.js有几种函数调用方式?
+(1)具名函数直接调用
+function foo()
+  {
+  }
+  foo();
+
+(2)匿名函数通过引用来调用
+  fooRef = function()
+  {
+  }
+fooRef();
+
+(3)没有引用的匿名函数调用
+(function()
+ {
+ })();
+
+10.js实现对象的深拷贝浅拷贝
+浅拷贝：for in遍历
+eg.
+var arr=["a","你好","10"];
+function simpleclone(obj){
+   var obj1={};
+   for(var i in obj){
+   obj1[i]=obj[i];
+}
+   return obj1;
+}
+   var newarr=simpple(arr);
+   console.dir(arr);
+   console.dir(newarr);
+
+深拷贝：json转字符串再转对象
+eg.
+var arr=["a","你好","10"];
+function deepclone(initalobj){
+    var obj=JSON.parse(JSON,stringify(initalobj));
+    return obj;
+}
+var newarr=deepclone(arr);
+console.dir(arr);
+cosole.dir(newarr);
+   
