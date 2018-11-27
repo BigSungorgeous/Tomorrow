@@ -76,6 +76,7 @@ for (let i = 0; i < 400 ; i++) {
     }
 }
 console.log(arr.length); // 157
+console.log(arr.toString().match(/1/g).length); // 180
 ```
 
 ## 7. AJAX请求时，get和post区别  [参考链接](https://www.cnblogs.com/ranyonsue/p/5888692.html "ajax请求中get和post区别")
