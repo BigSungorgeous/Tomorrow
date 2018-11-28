@@ -1,0 +1,79 @@
+1. 说出3种web安全问题
+     答:   1.sql注入;
+            2.XSS攻击;
+            3.CSRF攻击（跨站点请求伪造）
+
+
+
+2. 	
+	let fun=()=>{
+		console.log(this.foo);
+		}
+let  c={
+		foo:'foo',
+		baz:'bar',
+		say(){
+            fun();
+            (function(){
+                console.log(this.baz);
+            }())
+		}
+}
+		var foo='baz';
+		c.say();
+
+          result:baz,undefined
+
+
+3. 数组移除第一个元素的方法有哪些？
+      答：1.delete arr[0];
+             2.arr.shift();
+             3. arr.splice(0,1);
+             4. var newarr=arr.slice(1);
+
+
+4. 使元素消失的方法有哪些？
+       答： 1.display:none;
+               2.visiblity:hidden;
+               3.opacity:0;
+               4.transform: scale(0);
+               5.宽高设为0，overflow:hidden
+5. var arr=[];
+console.log(typeof arr)  ???
+typeof  会返回几种数据类型
+   答：返回object; boolen,number,string,object,function,null,undefined,symbol
+  
+
+6. 使用js，返回1到400所有自然数中一共出现过多少次“1”，并返回出现次数  
+       答： var sum=0;
+         for(var i=1;i<=400;i++){
+             (function(){
+                 var s=[...i.toString()];
+                 for(var j=0;j<s.length;j++){
+                     if(s[j]==1){
+                         sum+=1;
+                     }
+                 }
+                 console.log(sum);
+             }())
+         }
+
+7. ajax请求的时候get 和post方式的区别
+    答：1.GET请求会将参数跟在URL后进行传递，而POST请求则是作为HTTP消息的实体内容发送给WEB服务器。
+           2.GET方式提交的数据最多只能是2k，而POST没有限制；
+           3.GET方式请求的数据会被浏览器缓存起来，不安全；
+           4.在客户端使用get请求时,服务器端使用Request.QueryString来获取参数,而客户端使用post请求时,服务器端使用Request.Form来获取参数；
+8. '\=\='和'\=\=\='和Object.is()的不同
+    答：1.'=='与'==='是js中的运算符，'=='是值的比较，而'==='是严格相等，除了值以外还有数据类型的比较；
+           2.object.is()是es6的新增方法，用于判断值的相等；
+           3.两种比较运算符对于 'NaN === NaN'会返回 flase,对于 '+0 === -0'会返回 true;
+           4.Object.is(-0,+0)返回false,Object.is(NaN,NaN)返回true
+
+9. js有几种函数调用方式?
+   答：1.函数调用模式：函数名();
+          2.对象的方法调用：obj.方法名();
+          3.构造函数模式，new；
+
+10. js实现对象的深拷贝浅拷贝
+       答：深拷贝:JSON.parse(JSON.stringify(object));
+             浅拷贝:将对象直接引用
