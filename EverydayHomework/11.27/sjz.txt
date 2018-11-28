@@ -1,0 +1,45 @@
+2018年11月27日面试题
+说出3种web安全问题
+let fun=()=>{ console.log(this.foo); } let c={ foo:'foo', baz:'bar', say(){ fun(); (function(){ console.log (this.baz); }()) } } var foo='baz'; c.say();
+数组移除第一个元素的方法有哪些？
+使元素消失的方法有哪些？
+var arr=[]; console.log(typeof arr) ??? typeof 会返回几种数据类型
+使用js，返回1到400所有自然数中一共出现过多少次“1”，并返回出现次数
+ajax请求的时候get 和post方式的区别
+'=='和'==='和Object.is()的不同
+js有几种函数调用方式?
+js实现对象的深拷贝浅拷贝
+
+2、baz undefind;因为let创建后this指向本身，那么在c中调用的话就是fun的foo，而自调用函数的当前对象是顶级对象，window里面并没有定义，那么就是undefind.
+3、arr.shift(); 
+   slice("0","1");
+   splice("0","1");
+4、给元素设置display:none; visiblety:hidden;  在js中删除dom节点：找到节点，removeChild（）；
+5、object；
+6、function exp(num,length){
+    var numstr = num.toString();
+    var m = numstr.length;
+    if(numstr.length >= length){
+        return numstr;
+    }
+    for(var i = 0;i<length-m;i++){
+        numstr="0" + numstr;
+    }
+    return numstr;
+}
+    var n;
+    var result = 0;
+    for(n=1;n<=400;n++){
+        var numstr = exp(n,3);
+        for(s=0;s<numstr.length;s++){
+            if(numstr[s] == 1){
+                result += 1; 
+            }
+        }
+    }
+    console.log(result);
+7、主要就是两者传输数据的不同，一个是通过url来传输，也就是通过地址栏，但相对来说并不安全，post这不会，他在传输数据的时候是安全的，隐藏的，并且在后台里面接收的方式是不同的.
+8、==，只比较值不比较类型，===，值和类型都比较.object.js（）会把+0和-0还有NaN的问题他会解决.
+9、两种方式：正常函数调用，把它变成一个方法调用，放在对象里.
+10、深拷贝：把对象转成json字符串，再转成json对象
+    浅拷贝：把对象里面的内容遍历出来放在另一个对象中，但实际上这是指向问题.
