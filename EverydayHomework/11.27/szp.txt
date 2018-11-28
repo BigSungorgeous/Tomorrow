@@ -1,0 +1,83 @@
+1、
+    1）SQL注入
+    2）跨站请求伪造
+    3）文件上传漏洞
+2、 baz  bar
+  
+3、 delete  shift  splice
+
+4、display：none   visbility：hidden；opacity：0； overflow:hidden;
+
+5、object
+
+6、var x=0;
+        for(var i=1;i<400;i++){
+            (function(){
+                let y=[...i.toString()];    //[..."hello"]转化为["0":"h",......]
+                for(var z=0;z<y.length;z++){
+                    if(y[z]==1){
+                        x++;
+                    }
+                }
+                console.log(x)
+            }())
+            
+        }
+7、get和post都是向服务器发送的一种请求，只是发送机制不同。
+     get：一般用于信息获取，使用url传递参数，对所发送的信息数量有限制，一般在2000个字符；
+	get方式需要使用Request Query String 来取得变量的值，
+     post：一般用于修改服务器上的资源，对发送的 信息没有限制，post通过Request From
+              来获取变量的值，
+    （get是通过地址栏来传值，post通过提交表单来传值）
+
+   8、==等于  ===严格全等   Object.is()：加强版的严格等于
+       ==之比较数值不比较类型
+      ===比较数值也比较类型
+        object.is()与===基本上是一致的，不同之处：
+        -0不等于+0；
+       NAN等于本身
+9、函数调用的方式
+     function  first（）{
+       console.log("你好")
+     }
+     first(）;
+     var fun=function(){
+         console.log("你好")
+    }
+      fun(); //一般调用方式
+
+    var obj={
+       “name”: "lily" ，
+          say:function(){
+        console.log("你好")， 
+        }
+    }
+     obj.say()   //对象名.方法名调用方式
+   
+   function first(){
+      consloe.log("你好")；
+   }
+    var person=new first()    //new实例调用函数；
+
+  function foo() {
+        console.log( this );
+    }
+    foo.apply( obj );
+    foo.call( obj );  //上下文调用方式
+ 10、js对象实现深浅拷贝
+     浅拷贝： 
+ 	var arr=["a","lily",10];
+	function  person(int){
+	     var  obj={};
+	     for(var i in int){
+	         obj[i]=int[i]
+ 	      }
+	        return obj;	
+	}
+               var newarr=person(arr);
+   深拷贝：
+             var arr=["a","lily",10];
+	function  person(int){
+	     var obj=JSON.parse(JSON.stringify(int));
+	}
+	 var newarr=person(arr);
